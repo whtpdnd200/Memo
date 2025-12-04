@@ -7,6 +7,11 @@ spring:
     cache: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/memo?serverTimezone=Asia/seoul
+    url: jdbc:mysql://localhost:3306/memo?serverTimezone=Asia/Seoul
     username: root
     password: ${mysql.password}
+
+mybatis:
+  mapper-locations: mappers/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
