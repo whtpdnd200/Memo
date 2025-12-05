@@ -2,7 +2,6 @@ package com.devwork.memo.user.service;
 
 import com.devwork.memo.common.MD5HashingEncoder;
 import com.devwork.memo.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
