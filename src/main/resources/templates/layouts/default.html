@@ -11,8 +11,12 @@
 </head>
 <body>
     <div id="wrap">
-        <header class="d-flex align-items-center">
+        <header class="d-flex align-items-center justify-content-between">
             <h1 class="ml-3">Memo</h1>
+            <div th:if="${session.userId != null}" class="mr-3">
+                <span th:text="${session.userName}">세션 테스트 사용자</span>
+                <a href="/user/logout">로그아웃</a>
+            </div>
         </header>
         <th:block layout:fragment="contents"></th:block>
         <footer class="d-flex align-items-center justify-content-center">

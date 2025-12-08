@@ -1,5 +1,6 @@
 package com.devwork.memo.user.repository;
 
+import com.devwork.memo.user.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,4 +13,7 @@ public interface UserRepository {
                 , @Param("name") String name
                 , @Param("email") String email
     );
+
+    public User selectUser(@Param("loginId") String loginId
+                      , @Param("password") String password);
 }
