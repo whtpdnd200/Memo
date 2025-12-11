@@ -1,10 +1,12 @@
 package com.devwork.memo.memo.service;
 
+import com.devwork.memo.common.FileManager;
 import com.devwork.memo.memo.domain.Memo;
 import com.devwork.memo.memo.repository.MemoRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,12 +20,18 @@ public class MemoService {
         this.memoRepository = memoRepository;
     }
 
-    public boolean createMemo(Long id, String title, String contents) {
+    public boolean createMemo(Long id
+                            , String title
+                            , String contents
+                            , MultipartFile imageFile) {
+
+        String imagePath = FileManager.savaFile(id, imageFile);
 
         Memo memo = Memo.builder()
                         .userId(id)
                         .title(title)
                         .contents(contents)
+                        .imagePath(imagePath)
                         .build();
         try {
             memoRepository.save(memo);
